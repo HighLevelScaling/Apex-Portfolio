@@ -1,5 +1,6 @@
 import ProjectGallery from '@/components/ProjectGallery';
 import CustomCursor from '@/components/CustomCursor';
+import HeroBackground from '@/components/HeroBackground';
 
 const projects = [
   {
@@ -7,7 +8,7 @@ const projects = [
     client: 'CLAWWORK',
     title: 'AI Economic Agent',
     category: 'Autonomous AI Systems',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=2032&auto=format&fit=crop',
+    image: '/images/3d-ai-agent.png',
     color: '#00FF88',
     description: 'Autonomous AI coworker that completes real-world professional tasks, earns income, and manages its own token budget to stay solvent.',
     tech: ['Python', 'Claude API', 'LangChain', 'Multi-Agent'],
@@ -18,7 +19,7 @@ const projects = [
     client: 'CLIENTGUARD',
     title: 'Fraud Detection AI',
     category: 'AI · FinTech · Insurance',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop',
+    image: '/images/3d-fraud-detection.png',
     color: '#3B82F6',
     description: 'AI-powered fraud detection platform helping insurance companies save $500K–2M annually with 90%+ accuracy across pet, event, cyber, and specialty lines.',
     tech: ['Next.js', 'Prisma', 'PostgreSQL', 'ML/AI'],
@@ -29,7 +30,7 @@ const projects = [
     client: 'FLOC',
     title: 'Hyperlocal Nightlife',
     category: 'Mobile · Social Discovery',
-    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2074&auto=format&fit=crop',
+    image: '/images/3d-nightlife.png',
     color: '#A855F7',
     description: 'Feel where your people go. A hyperlocal discovery app for small cities — find venues, see crowd levels, and know exactly where your contacts are going out tonight.',
     tech: ['React Native', 'Node.js', 'Maps API', 'PostgreSQL'],
@@ -40,7 +41,7 @@ const projects = [
     client: 'COMMANDCENTER',
     title: 'Unified Ops Dashboard',
     category: 'SaaS · Developer Tools',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/3d-ops-dashboard.png',
     color: '#F59E0B',
     description: 'One pane of glass for engineering teams — Vercel deploys, real-time analytics, Stripe revenue, and Resend email campaigns unified in a single command center.',
     tech: ['Next.js', 'Vercel API', 'Stripe', 'Resend'],
@@ -51,7 +52,7 @@ const projects = [
     client: 'SNEAKX',
     title: 'The Sneaker Exchange',
     category: 'Marketplace · Trading',
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/3d-sneaker-exchange.png',
     color: '#CCFF00',
     description: 'Neo-brutalist sneaker trading platform. Live price tickers, authentication tags, real-time bids — where streetwear culture meets the precision of a financial exchange.',
     tech: ['React', 'Node.js', 'WebSockets', 'Drizzle ORM'],
@@ -62,7 +63,7 @@ const projects = [
     client: 'NAVIGATOR',
     title: 'AI Onboarding Platform',
     category: 'HR Tech · AI Agents',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop',
+    image: '/images/3d-onboarding-platform.png',
     color: '#10B981',
     description: 'AI agent-powered employee onboarding that learns company culture, adapts to each new hire, and automates the entire workflow from offer letter to day 90.',
     tech: ['Next.js', 'AI Agents', 'SQLite', 'TypeScript'],
@@ -73,7 +74,7 @@ const projects = [
     client: 'GLOWMARK',
     title: 'Content Protection Suite',
     category: 'Security · Creative Tools',
-    image: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/3d-content-protection.png',
     color: '#EC4899',
     description: 'Watermark and protect your digital content with visible marks, invisible steganographic encoding, and cryptographic metadata signing — all in one suite.',
     tech: ['Next.js', 'Canvas API', 'Crypto', 'Vercel'],
@@ -84,7 +85,7 @@ const projects = [
     client: 'ANTIGRAVITY',
     title: 'Agent Swarm Engine',
     category: 'AI Infrastructure',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop',
+    image: '/images/3d-agent-swarm.png',
     color: '#6366F1',
     description: 'Deploy autonomous Gemini-powered agent swarms for any complex task. Orchestrate specialized AI teams that plan, delegate, execute, and self-correct at scale.',
     tech: ['Python', 'Gemini API', 'Multi-Agent', 'YAML'],
@@ -95,7 +96,7 @@ const projects = [
     client: 'WHISTLEBLOW',
     title: 'E-Commerce Arbitrage',
     category: 'Automation · eCommerce',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+    image: '/images/3d-ecommerce-arbitrage.png',
     color: '#14B8A6',
     description: 'Automated e-commerce arbitrage engine that scans marketplaces, surfaces price discrepancies, and executes cross-platform trades before the window closes.',
     tech: ['Node.js', 'Puppeteer', 'Redis', 'Docker'],
@@ -106,7 +107,7 @@ const projects = [
     client: 'TRADINGWATCHER',
     title: 'Market Signal Tracker',
     category: 'FinTech · Data',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop',
+    image: '/images/3d-market-signal.png',
     color: '#F97316',
     description: 'Real-time market signal tracker with custom alert rules, pattern detection across assets, and a clean dashboard built for serious traders who move fast.',
     tech: ['Next.js', 'WebSockets', 'Charts', 'PostgreSQL'],
@@ -127,9 +128,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="h-screen flex flex-col justify-center items-center relative overflow-hidden">
-        {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full blur-[140px] animate-pulse"
-          style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, rgba(168,85,247,0.05) 50%, transparent 70%)' }} />
+        <HeroBackground />
 
         {/* Corner labels */}
         <div className="absolute top-8 left-8 text-white/20 text-[10px] uppercase tracking-[0.4em] font-sans">
