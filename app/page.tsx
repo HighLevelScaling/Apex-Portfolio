@@ -1,6 +1,7 @@
 import ProjectGallery from '@/components/ProjectGallery';
 import CustomCursor from '@/components/CustomCursor';
 import HeroBackground from '@/components/HeroBackground';
+import Testimonials from '@/components/Testimonials';
 
 const projects = [
   {
@@ -199,6 +200,9 @@ export default function Home() {
 
       {/* ── PORTFOLIO GRID ── */}
       <ProjectGallery projects={projects} />
+
+      {/* ── TESTIMONIALS ── */}
+      <Testimonials />
 
       {/* ── FOOTER ── */}
       <footer className="relative py-32 px-4 text-center border-t border-white/[0.06] overflow-hidden">
