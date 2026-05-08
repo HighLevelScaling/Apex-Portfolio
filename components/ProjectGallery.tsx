@@ -1,8 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { useRef } from 'react';
 
 interface Project {
   id: string;
@@ -18,11 +17,21 @@ interface Project {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [hovered, setHovered] = useState(false);
+  const [delayedInView, setDelayedInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, margin: '-15% 0px -15% 0px' });
+  const inView = useInView(ref, { once: false, margin: '-15% 0px -15% 0px', amount: 0.3 });
 
-  // Card is "active" if scrolled into view OR hovered
-  const active = inView || hovered;
+  // Apply 1s delay to scroll-triggered activation
+  useEffect(() => {
+    if (inView) {
+      const t = setTimeout(() => setDelayedInView(true), 1000);
+      return () => clearTimeout(t);
+    } else {
+      setDelayedInView(false);
+    }
+  }, [inView]);
+
+  const active = delayedInView || hovered;
 
   return (
     <motion.div
