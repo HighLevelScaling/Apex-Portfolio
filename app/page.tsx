@@ -25,7 +25,7 @@ export default function Home() {
 
         {/* Corner labels */}
         <div className="absolute top-8 left-8 text-white/20 text-[10px] uppercase tracking-[0.4em] font-sans">
-          Portfolio 2024–2025
+          Portfolio 2020–2024
         </div>
         <div className="absolute top-8 right-8 text-white/20 text-[10px] uppercase tracking-[0.4em] font-sans">
           {projects.length} Projects

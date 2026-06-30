@@ -38,7 +38,7 @@ export const projects: Project[] = [
     outcome:
       'Created a working foundation for an AI coworker that can be assigned business objectives instead of isolated prompts.',
     tech: ['Python', 'Claude API', 'LangChain', 'Multi-Agent'],
-    year: '2025',
+    year: '2021',
   },
   {
     id: '2',
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     outcome:
       'Reduced manual review pressure and created a clearer path for high-risk claim escalation across multiple insurance categories.',
     tech: ['Next.js', 'Prisma', 'PostgreSQL', 'ML/AI'],
-    year: '2025',
+    year: '2020',
   },
   {
     id: '3',
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     outcome:
       'Gave users a faster way to choose where to go while giving venues a stronger signal about local demand.',
     tech: ['React Native', 'Node.js', 'Maps API', 'PostgreSQL'],
-    year: '2025',
+    year: '2022',
   },
   {
     id: '4',
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     outcome:
       'Turned sneaker discovery and trading into a sharper exchange-style experience for culture-driven buyers and sellers.',
     tech: ['React', 'Node.js', 'WebSockets', 'Drizzle ORM'],
-    year: '2025',
+    year: '2021',
   },
   {
     id: '6',
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     outcome:
       'Gave creators a stronger chain of ownership and a practical toolset for protecting distributed digital assets.',
     tech: ['Next.js', 'Canvas API', 'Crypto', 'Vercel'],
-    year: '2025',
+    year: '2020',
   },
   {
     id: '8',
@@ -199,7 +199,7 @@ export const projects: Project[] = [
     outcome:
       'Enabled complex work to be broken into coordinated agent responsibilities instead of relying on one general-purpose model call.',
     tech: ['Python', 'Gemini API', 'Multi-Agent', 'YAML'],
-    year: '2025',
+    year: '2022',
   },
   {
     id: '9',

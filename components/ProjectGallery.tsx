@@ -189,7 +189,7 @@ export default function ProjectGallery({ projects }: { projects: Project[] }) {
             Selected Works
           </h2>
           <span className="text-white/20 text-[10px] tracking-[0.3em] uppercase font-sans">
-            2024–2025 /// {projects.length} Projects
+            2020–2024 /// {projects.length} Projects
           </span>
         </div>
 
