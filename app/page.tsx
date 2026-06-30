@@ -2,119 +2,10 @@ import ProjectGallery from '@/components/ProjectGallery';
 import CustomCursor from '@/components/CustomCursor';
 import HeroBackground from '@/components/HeroBackground';
 import Testimonials from '@/components/Testimonials';
-
-const projects = [
-  {
-    id: '1',
-    client: 'CLAWWORK',
-    title: 'AI Economic Agent',
-    category: 'Autonomous AI Systems',
-    image: '/images/3d-ai-agent.webp',
-    color: '#00FF88',
-    description: 'Autonomous AI coworker that completes real-world professional tasks, earns income, and manages its own token budget to stay solvent.',
-    tech: ['Python', 'Claude API', 'LangChain', 'Multi-Agent'],
-    year: '2025',
-  },
-  {
-    id: '2',
-    client: 'CLIENTGUARD',
-    title: 'Fraud Detection AI',
-    category: 'AI · FinTech · Insurance',
-    image: '/images/3d-fraud-detection.webp',
-    color: '#3B82F6',
-    description: 'AI-powered fraud detection platform helping insurance companies save $500K–2M annually with 90%+ accuracy across pet, event, cyber, and specialty lines.',
-    tech: ['Next.js', 'Prisma', 'PostgreSQL', 'ML/AI'],
-    year: '2025',
-  },
-  {
-    id: '3',
-    client: 'FLOC',
-    title: 'Hyperlocal Nightlife',
-    category: 'Mobile · Social Discovery',
-    image: '/images/3d-nightlife.webp',
-    color: '#A855F7',
-    description: 'Feel where your people go. A hyperlocal discovery app for small cities — find venues, see crowd levels, and know exactly where your contacts are going out tonight.',
-    tech: ['React Native', 'Node.js', 'Maps API', 'PostgreSQL'],
-    year: '2025',
-  },
-  {
-    id: '4',
-    client: 'COMMANDCENTER',
-    title: 'Unified Ops Dashboard',
-    category: 'SaaS · Developer Tools',
-    image: '/images/3d-ops-dashboard.webp',
-    color: '#F59E0B',
-    description: 'One pane of glass for engineering teams — Vercel deploys, real-time analytics, Stripe revenue, and Resend email campaigns unified in a single command center.',
-    tech: ['Next.js', 'Vercel API', 'Stripe', 'Resend'],
-    year: '2024',
-  },
-  {
-    id: '5',
-    client: 'SNEAKX',
-    title: 'The Sneaker Exchange',
-    category: 'Marketplace · Trading',
-    image: '/images/3d-sneaker-exchange.webp',
-    color: '#CCFF00',
-    description: 'Neo-brutalist sneaker trading platform. Live price tickers, authentication tags, real-time bids — where streetwear culture meets the precision of a financial exchange.',
-    tech: ['React', 'Node.js', 'WebSockets', 'Drizzle ORM'],
-    year: '2025',
-  },
-  {
-    id: '6',
-    client: 'NAVIGATOR',
-    title: 'AI Onboarding Platform',
-    category: 'HR Tech · AI Agents',
-    image: '/images/3d-onboarding-platform.webp',
-    color: '#10B981',
-    description: 'AI agent-powered employee onboarding that learns company culture, adapts to each new hire, and automates the entire workflow from offer letter to day 90.',
-    tech: ['Next.js', 'AI Agents', 'SQLite', 'TypeScript'],
-    year: '2024',
-  },
-  {
-    id: '7',
-    client: 'GLOWMARK',
-    title: 'Content Protection Suite',
-    category: 'Security · Creative Tools',
-    image: '/images/3d-content-protection.webp',
-    color: '#EC4899',
-    description: 'Watermark and protect your digital content with visible marks, invisible steganographic encoding, and cryptographic metadata signing — all in one suite.',
-    tech: ['Next.js', 'Canvas API', 'Crypto', 'Vercel'],
-    year: '2025',
-  },
-  {
-    id: '8',
-    client: 'ANTIGRAVITY',
-    title: 'Agent Swarm Engine',
-    category: 'AI Infrastructure',
-    image: '/images/3d-agent-swarm.webp',
-    color: '#6366F1',
-    description: 'Deploy autonomous Gemini-powered agent swarms for any complex task. Orchestrate specialized AI teams that plan, delegate, execute, and self-correct at scale.',
-    tech: ['Python', 'Gemini API', 'Multi-Agent', 'YAML'],
-    year: '2025',
-  },
-  {
-    id: '9',
-    client: 'WHISTLEBLOW',
-    title: 'E-Commerce Arbitrage',
-    category: 'Automation · eCommerce',
-    image: '/images/3d-ecommerce-arbitrage.webp',
-    color: '#14B8A6',
-    description: 'Automated e-commerce arbitrage engine that scans marketplaces, surfaces price discrepancies, and executes cross-platform trades before the window closes.',
-    tech: ['Node.js', 'Puppeteer', 'Redis', 'Docker'],
-    year: '2024',
-  },
-  {
-    id: '10',
-    client: 'TRADINGWATCHER',
-    title: 'Market Signal Tracker',
-    category: 'FinTech · Data',
-    image: '/images/3d-market-signal.webp',
-    color: '#F97316',
-    description: 'Real-time market signal tracker with custom alert rules, pattern detection across assets, and a clean dashboard built for serious traders who move fast.',
-    tech: ['Next.js', 'WebSockets', 'Charts', 'PostgreSQL'],
-    year: '2024',
-  },
-];
+import LeadAutomation from '@/components/LeadAutomation';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
+import ProductReel from '@/components/ProductReel';
+import { projects } from '@/lib/projects';
 
 const STACK = [
   'Next.js', 'TypeScript', 'Python', 'Claude API', 'Gemini', 'Prisma',
@@ -126,6 +17,7 @@ export default function Home() {
   return (
     <main className="bg-[#050505] min-h-screen">
       <CustomCursor />
+      <LeadAutomation />
 
       {/* ── HERO ── */}
       <section className="h-screen flex flex-col justify-center items-center relative overflow-hidden">
@@ -159,6 +51,21 @@ export default function Home() {
           <p className="text-white/25 text-xs md:text-sm uppercase tracking-[0.4em] font-sans">
             Products at the edge of what&apos;s possible
           </p>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="#lead-capture"
+              className="cursor-pointer bg-white px-7 py-4 text-[10px] font-black uppercase tracking-[0.35em] text-black transition-colors hover:bg-[#CCFF00]"
+            >
+              Start Project
+            </a>
+            <a
+              href="#selected-work"
+              className="cursor-pointer border border-white/10 px-7 py-4 text-[10px] font-black uppercase tracking-[0.35em] text-white/60 transition-colors hover:border-white/30 hover:text-white"
+            >
+              View Work
+            </a>
+          </div>
         </div>
 
         {/* Floating stat pills */}
@@ -198,11 +105,67 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── PRODUCT REEL ── */}
+      <ProductReel />
+
       {/* ── PORTFOLIO GRID ── */}
-      <ProjectGallery projects={projects} />
+      <div id="selected-work">
+        <ProjectGallery projects={projects} />
+      </div>
 
       {/* ── TESTIMONIALS ── */}
       <Testimonials />
+
+      {/* ── LEAD CAPTURE ── */}
+      <section
+        id="lead-capture"
+        className="relative overflow-hidden border-y border-white/[0.06] px-4 py-28 md:px-12"
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(135deg, rgba(204,255,0,0.08) 0%, transparent 35%), radial-gradient(ellipse at 75% 50%, rgba(20,184,166,0.08) 0%, transparent 45%)',
+          }}
+        />
+
+        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div>
+            <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.6em] text-[#CCFF00]">
+              Project Intake
+            </p>
+            <h2
+              className="mb-8 font-sans font-black leading-none tracking-tighter text-white"
+              style={{ fontSize: 'clamp(2.75rem, 7vw, 6.5rem)' }}
+            >
+              BUILD THE SYSTEM.
+            </h2>
+            <p className="max-w-xl text-sm leading-7 text-white/45">
+              Custom AI agents, full-stack products, internal tools, growth systems,
+              and acquisition-ready software with the automation hooks already wired in.
+            </p>
+
+            <div className="mt-10 grid grid-cols-3 gap-px bg-white/[0.06]">
+              {[
+                ['24H', 'Reply'],
+                ['AI', 'First'],
+                ['FS', 'Build'],
+              ].map(([value, label]) => (
+                <div key={label} className="bg-[#050505] p-5">
+                  <div className="text-2xl font-black text-white">{value}</div>
+                  <div className="mt-2 text-[9px] uppercase tracking-[0.35em] text-white/25">
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="border border-white/10 bg-[#080808]/90 p-5 backdrop-blur-sm md:p-8">
+            <LeadCaptureForm source="embedded_project_intake" />
+          </div>
+        </div>
+      </section>
 
       {/* ── FOOTER ── */}
       <footer className="relative py-32 px-4 text-center border-t border-white/[0.06] overflow-hidden">
@@ -220,10 +183,10 @@ export default function Home() {
         </h2>
 
         <a
-          href="mailto:hello@apex.dev"
+          href="#lead-capture"
           className="inline-block px-12 py-5 bg-white text-black font-black text-xs uppercase tracking-[0.4em] hover:bg-[#CCFF00] transition-colors duration-300"
         >
-          Get In Touch ↗
+          Get In Touch
         </a>
 
         <div className="mt-20 flex justify-center gap-12 text-white/15 text-[9px] uppercase tracking-[0.4em]">

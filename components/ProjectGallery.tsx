@@ -2,9 +2,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Project {
   id: string;
+  slug: string;
   client: string;
   title: string;
   category: string;
@@ -18,7 +20,7 @@ interface Project {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [hovered, setHovered] = useState(false);
   const [delayedInView, setDelayedInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: false, margin: '-15% 0px -15% 0px', amount: 0.3 });
 
   // Apply 1s delay to scroll-triggered activation
@@ -34,14 +36,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const active = delayedInView || hovered;
 
   return (
-    <motion.div
+    <motion.article
       ref={ref}
       key={project.id}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true, margin: '-80px' }}
-      className="group relative cursor-none"
+      className="group relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -56,7 +58,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
 
       {/* Image card */}
-      <div className="relative h-[420px] md:h-[480px] w-full overflow-hidden">
+      <Link
+        href={`/projects/${project.slug}`}
+        className="block cursor-pointer"
+        aria-label={`Open summary page for ${project.title}`}
+      >
+        <div className="relative h-[420px] md:h-[480px] w-full overflow-hidden">
 
         {/* Dark overlay — lifts when in view */}
         <div
@@ -164,14 +171,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </span>
           </div>
         </div>
-      </div>
-    </motion.div>
+        </div>
+      </Link>
+    </motion.article>
   );
 }
 
 export default function ProjectGallery({ projects }: { projects: Project[] }) {
-  const activeProject = projects[0]; // fallback for background wash
-
   return (
     <section className="relative w-full bg-[#050505] py-20 px-4 md:px-12 overflow-hidden">
 

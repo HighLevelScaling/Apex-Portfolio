@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
 
 const securityHeaders = [
   // Prevent DNS prefetch leaking visited URLs
@@ -18,6 +19,9 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
   async headers() {
     return [
       {
