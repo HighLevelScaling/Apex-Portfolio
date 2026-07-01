@@ -2,7 +2,6 @@ import ProjectGallery from '@/components/ProjectGallery';
 import CustomCursor from '@/components/CustomCursor';
 import HeroBackground from '@/components/HeroBackground';
 import Testimonials from '@/components/Testimonials';
-import LeadAutomation from '@/components/LeadAutomation';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
 import ProductReel from '@/components/ProductReel';
 import { projects } from '@/lib/projects';
@@ -17,7 +16,6 @@ export default function Home() {
   return (
     <main className="bg-[#050505] min-h-screen">
       <CustomCursor />
-      <LeadAutomation />
 
       {/* ── HERO ── */}
       <section className="h-screen flex flex-col justify-center items-center relative overflow-hidden">
