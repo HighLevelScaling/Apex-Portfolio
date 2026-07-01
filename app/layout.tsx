@@ -3,36 +3,46 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import {
+  absoluteUrl,
+  creatorHandle,
+  creatorName,
+  seoKeywords,
+  siteDescription,
+  siteName,
+  siteTitle,
+  siteUrl,
+} from './seo';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.apexportfolio.me'),
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  category: 'technology',
   title: {
-    default: 'APEX | Custom AI Agents & Full-Stack Development',
+    default: siteTitle,
     template: '%s | APEX',
   },
-  description:
-    'Apex builds custom AI agents and full-stack products for serious business operators. Autonomous systems that work 24/7, generate revenue, and scale without headcount.',
-  keywords: [
-    'AI agents', 'custom AI development', 'agentic systems', 'AI automation',
-    'full-stack developer', 'AI agency', 'autonomous AI', 'business automation',
-    'Next.js developer', 'AI builder',
-  ],
-  authors: [{ name: 'Kian', url: 'https://www.apexportfolio.me' }],
-  creator: 'Kian',
+  description: siteDescription,
+  keywords: seoKeywords,
+  authors: [{ name: creatorName, url: siteUrl }],
+  creator: creatorName,
+  publisher: siteName,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.apexportfolio.me',
-    siteName: 'APEX',
-    title: 'APEX | Custom AI Agents & Full-Stack Development',
-    description:
-      'Apex builds custom AI agents and full-stack products for serious business operators. Autonomous systems that work 24/7, generate revenue, and scale without headcount.',
+    url: siteUrl,
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
-        url: '/og-image.png',
+        url: absoluteUrl('/og-image.png'),
         width: 1200,
         height: 630,
         alt: 'APEX — Custom AI Agents & Full-Stack Development',
@@ -41,11 +51,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'APEX | Custom AI Agents & Full-Stack Development',
-    description:
-      'Apex builds custom AI agents and full-stack products for serious business operators.',
-    images: ['/og-image.png'],
-    creator: '@apexbuilds',
+    title: siteTitle,
+    description: siteDescription,
+    images: [absoluteUrl('/og-image.png')],
+    creator: creatorHandle,
   },
   robots: {
     index: true,

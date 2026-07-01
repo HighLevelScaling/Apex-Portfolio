@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProjectBySlug, projects } from '@/lib/projects';
+import { absoluteUrl, projectUrl, siteName } from '@/app/seo';
 
 type ProjectPageProps = {
   params: Promise<{
@@ -29,17 +30,30 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: `${project.title} Summary`,
     description: project.summary,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
     openGraph: {
+      type: 'article',
+      url: projectUrl(project.slug),
       title: `${project.title} Summary | APEX`,
       description: project.summary,
+      siteName,
+      publishedTime: `${project.year}-01-01`,
       images: [
         {
-          url: project.image,
+          url: absoluteUrl(project.image),
           width: 1200,
           height: 630,
           alt: `${project.title} app screenshot`,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} Summary | APEX`,
+      description: project.summary,
+      images: [absoluteUrl(project.image)],
     },
   };
 }
@@ -55,9 +69,30 @@ export default async function ProjectSummaryPage({ params }: ProjectPageProps) {
   const projectIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(projectIndex + 1) % projects.length];
   const projectNumber = String(projectIndex + 1).padStart(2, '0');
+  const projectSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    '@id': `${projectUrl(project.slug)}#project`,
+    name: project.title,
+    url: projectUrl(project.slug),
+    image: absoluteUrl(project.image),
+    description: project.summary,
+    genre: project.category,
+    dateCreated: project.year,
+    creator: {
+      '@type': 'Person',
+      name: 'Kian',
+    },
+    about: project.tech,
+  };
 
   return (
     <main className="min-h-screen bg-[#050505] text-white">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
       <section className="relative overflow-hidden px-4 py-8 md:px-8">
         <div
           className="absolute inset-0 pointer-events-none"

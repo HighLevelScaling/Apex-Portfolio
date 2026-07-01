@@ -5,6 +5,7 @@ import Testimonials from '@/components/Testimonials';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
 import ProductReel from '@/components/ProductReel';
 import { projects } from '@/lib/projects';
+import { organizationSchema, portfolioSchema, websiteSchema } from './seo';
 
 const STACK = [
   'Next.js', 'TypeScript', 'Python', 'Claude API', 'Gemini', 'Prisma',
@@ -15,6 +16,13 @@ const STACK = [
 export default function Home() {
   return (
     <main className="bg-[#050505] min-h-screen">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([organizationSchema, websiteSchema, portfolioSchema]),
+        }}
+      />
       <CustomCursor />
 
       {/* ── HERO ── */}

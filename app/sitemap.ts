@@ -1,19 +1,20 @@
 import { MetadataRoute } from 'next';
 import { projects } from '@/lib/projects';
+import { projectUrl, siteUrl } from './seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.apexportfolio.me';
+  const updatedAt = new Date();
 
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      url: siteUrl,
+      lastModified: updatedAt,
+      changeFrequency: 'weekly',
       priority: 1,
     },
     ...projects.map((project) => ({
-      url: `${baseUrl}/projects/${project.slug}`,
-      lastModified: new Date(),
+      url: projectUrl(project.slug),
+      lastModified: updatedAt,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
