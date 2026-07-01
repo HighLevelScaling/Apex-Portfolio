@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "verify:canonical": "node scripts/verify-canonical-redirect.mjs",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,12 +15,14 @@
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.0",
     "next": "^16.2.1",
+    "nodemailer": "^9.0.2",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
